@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Development Tech Lion - Soluciones Tecnológicas para PYMES</title>
-    <meta name="description" content="Development Tech Lion ofrece soluciones tecnológicas integrales para pequeños y medianos negocios. Desarrollo web, aplicaciones, consultoría y más.">
+    <title>Soluciones para Gimnasios - Development Tech Lion</title>
+    <meta name="description" content="Soluciones tecnológicas especializadas para gimnasios: reservas de clases, membresías digitales, apps para miembros y más.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -116,11 +116,7 @@
         /* Hero Section */
         .hero {
             padding: 160px 0 100px;
-            background: linear-gradient(135deg, rgba(5, 5, 5, 0.9) 0%, rgba(10, 10, 10, 0.8) 50%, rgba(123, 44, 191, 0.7) 100%),
-                        url('819852980_1555946219166001_2888662158888646377_n.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 50%, var(--secondary) 100%);
             color: var(--white);
             text-align: center;
             position: relative;
@@ -134,7 +130,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(0, 240, 255, 0.15) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 50%, rgba(0, 240, 255, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
 
@@ -198,10 +194,10 @@
             box-shadow: 0 0 30px rgba(123, 44, 191, 0.6);
         }
 
-        /* Services Section */
-        .services {
+        /* Gym Solutions Section */
+        .gym-solutions {
             padding: 100px 0;
-            background: var(--dark);
+            background: var(--light);
         }
 
         .section-title {
@@ -225,27 +221,45 @@
             margin: 0 auto;
         }
 
-        .services-grid {
+        .gym-solutions-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
-        .service-card {
-            background: var(--light);
+        .gym-card {
+            background: var(--dark);
             padding: 2rem;
-            border-radius: 8px;
-            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            border-radius: 12px;
             border: 1px solid transparent;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(123, 44, 191, 0.3);
+        .gym-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .gym-card:hover {
             border-color: var(--secondary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(123, 44, 191, 0.2);
         }
 
-        .service-icon {
+        .gym-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .gym-card-icon {
             width: 60px;
             height: 60px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
@@ -257,193 +271,71 @@
             color: #000000;
         }
 
-        .service-icon svg {
+        .gym-card-icon svg {
             width: 32px;
             height: 32px;
         }
 
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .gym-card h3 {
             color: var(--secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .service-card p {
-            color: var(--gray);
-        }
-
-        /* Industries Section */
-        .industries {
-            padding: 100px 0;
-            background: var(--light);
-        }
-
-        .industries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .industry-card {
-            background: var(--dark);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid transparent;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            display: block;
-        }
-
-        .industry-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1) 0%, rgba(123, 44, 191, 0.1) 100%);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .industry-card:hover {
-            border-color: var(--secondary);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(123, 44, 191, 0.2);
-        }
-
-        .industry-card:hover::before {
-            opacity: 1;
-        }
-
-        .industry-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-            color: #000000;
-        }
-
-        .industry-icon svg {
-            width: 36px;
-            height: 36px;
-        }
-
-        .industry-card h3 {
-            color: var(--white);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            position: relative;
-            z-index: 1;
         }
 
-        .industry-card p {
+        .gym-card p {
             color: var(--gray);
             font-size: 0.95rem;
             line-height: 1.6;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
         }
 
-        .industry-card .arrow {
-            color: var(--primary);
-            font-size: 1.5rem;
-            position: relative;
-            z-index: 1;
-            transition: transform 0.3s;
+        .gym-benefits-section {
+            margin-top: 4rem;
         }
 
-        .industry-card:hover .arrow {
-            transform: translateX(10px);
-            color: var(--secondary);
-        }
-
-        /* About Section */
-        .about {
-            padding: 100px 0;
-            background: var(--darker);
-        }
-
-        .about-content {
+        .gym-benefits-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .about-text p {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
         }
 
-        .stat {
+        .gym-benefit-card {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--light) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--primary);
+            transition: all 0.3s;
             text-align: center;
         }
 
-        .stat-number {
-            font-size: 2.5rem;
+        .gym-benefit-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 10px 30px rgba(123, 44, 191, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .gym-benefit-card .number {
+            font-size: 3rem;
             font-weight: 800;
             color: var(--primary);
+            margin-bottom: 0.5rem;
+            line-height: 1;
         }
 
-        .stat-label {
+        .gym-benefit-card h4 {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .gym-benefit-card p {
             color: var(--gray);
             font-size: 0.9rem;
-        }
-
-        .about-image {
-            background: url('821150740_1427416426006636_887308469285932528_n.jpg');
-            background-size: cover;
-            background-position: center;
-            border-radius: 8px;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid var(--primary);
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 240, 255, 0.3) 0%, rgba(123, 44, 191, 0.3) 100%);
+            margin: 0;
         }
 
         /* Contact Section */
@@ -584,13 +476,9 @@
                 font-size: 2.5rem;
             }
 
-            .about-content,
+            .gym-solutions-content,
             .contact-content {
                 grid-template-columns: 1fr;
-            }
-
-            .about-image {
-                height: 300px;
             }
         }
     </style>
@@ -599,145 +487,104 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Development Tech <span>Lion</span></div>
+                <a href="index.html" class="logo">Development Tech <span>Lion</span></a>
                 <ul class="nav-links">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#industrias">Industrias</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="index.html#nosotros">Nosotros</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
                 </ul>
-                <a href="#contacto" class="cta-button">Contáctanos</a>
+                <a href="index.html#contacto" class="cta-button">Contáctanos</a>
             </nav>
         </div>
     </header>
 
-    <section class="hero" id="inicio">
+    <section class="hero">
         <div class="container">
-            <h1>Soluciones Tecnológicas<br>para tu Negocio</h1>
-            <p>Ayudamos a pequeños y medianos negocios a transformarse digitalmente con soluciones a medida, desarrollo web y consultoría tecnológica experta.</p>
+            <h1>Soluciones para Gimnasios</h1>
+            <p>Transforma tu gimnasio con tecnología que optimiza operaciones y mejora la experiencia de tus miembros</p>
             <div class="hero-buttons">
-                <a href="#servicios" class="hero-button primary">Ver Servicios</a>
-                <a href="#contacto" class="hero-button secondary">Contáctanos</a>
+                <a href="#contacto" class="hero-button primary">Solicitar Consulta</a>
+                <a href="index.html#servicios" class="hero-button secondary">Ver Todos los Servicios</a>
             </div>
         </div>
     </section>
 
-    <section class="services" id="servicios">
+    <section class="gym-solutions">
         <div class="container">
             <div class="section-title">
-                <h2>Nuestros Servicios</h2>
-                <p>Ofrecemos soluciones integrales para impulsar el crecimiento de tu negocio mediante la tecnología</p>
+                <h2>Soluciones Especializadas</h2>
+                <p>Desarrollamos tecnología a medida para gimnasios de todos los tamaños</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i data-lucide="globe"></i></div>
-                    <h3>Desarrollo Web</h3>
-                    <p>Sitios web modernos y responsivos adaptados a las necesidades de tu negocio, optimizados para convertir visitantes en clientes.</p>
+            <div class="gym-solutions-content">
+                <div class="gym-card">
+                    <div class="gym-card-icon"><i data-lucide="calendar"></i></div>
+                    <h3>Sistema de Reservas</h3>
+                    <p>Calendario interactivo para reservar clases, yoga, spinning, crossfit con confirmación automática</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i data-lucide="smartphone"></i></div>
-                    <h3>Aplicaciones Móviles</h3>
-                    <p>Desarrollo de aplicaciones iOS y Android para conectar con tus clientes en cualquier lugar y momento.</p>
+                <div class="gym-card">
+                    <div class="gym-card-icon"><i data-lucide="credit-card"></i></div>
+                    <h3>Membresías Digitales</h3>
+                    <p>Gestión de planes, pagos recurrentes, renovación automática y control de accesos</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i data-lucide="wrench"></i></div>
-                    <h3>Consultoría Tecnológica</h3>
-                    <p>Asesoramiento experto para optimizar procesos, implementar nuevas tecnologías y mejorar la eficiencia operativa.</p>
+                <div class="gym-card">
+                    <div class="gym-card-icon"><i data-lucide="smartphone"></i></div>
+                    <h3>App para Miembros</h3>
+                    <p>Rutinas personalizadas, seguimiento de progreso, historial de entrenamientos y notificaciones</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i data-lucide="shopping-cart"></i></div>
-                    <h3>E-commerce</h3>
-                    <p>Tiendas online completas con pasarelas de pago seguras y gestión de inventario integrada.</p>
+                <div class="gym-card">
+                    <div class="gym-card-icon"><i data-lucide="watch"></i></div>
+                    <h3>Wearables</h3>
+                    <p>Conexión con Apple Watch, Fitbit, Garmin para sincronizar datos de actividad</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i data-lucide="cloud"></i></div>
-                    <h3>Soluciones Cloud</h3>
-                    <p>Migración y gestión en la nube para escalar tu infraestructura de forma segura y eficiente.</p>
+                <div class="gym-card">
+                    <div class="gym-card-icon"><i data-lucide="bar-chart"></i></div>
+                    <h3>Panel Admin</h3>
+                    <p>Dashboard con métricas de asistencia, ingresos, miembros activos y rendimiento</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i data-lucide="shield"></i></div>
-                    <h3>Ciberseguridad</h3>
-                    <p>Protección de datos y sistemas para garantizar la seguridad de tu negocio y la confianza de tus clientes.</p>
+                <div class="gym-card">
+                    <div class="gym-card-icon"><i data-lucide="bell"></i></div>
+                    <h3>Notificaciones</h3>
+                    <p>Recordatorios de clases, promociones especiales, renovación de membresías</p>
+                </div>
+                <div class="gym-card">
+                    <div class="gym-card-icon"><i data-lucide="shopping-cart"></i></div>
+                    <h3>Tienda Online</h3>
+                    <p>Venta de suplementos, merchandising, equipamiento con delivery a domicilio</p>
+                </div>
+                <div class="gym-card">
+                    <div class="gym-card-icon"><i data-lucide="target"></i></div>
+                    <h3>Seguimiento Metas</h3>
+                    <p>Objetivos fitness, gráficos de progreso, comparativas y logros desbloqueables</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="industries" id="industrias">
-        <div class="container">
-            <div class="section-title">
-                <h2>Soluciones por Industria</h2>
-                <p>Tecnología especializada para diferentes tipos de negocios. Encuentra la solución perfecta para tu industria.</p>
-            </div>
-            <div class="industries-grid">
-                <a href="gimnasio.html" class="industry-card">
-                    <div class="industry-icon"><i data-lucide="dumbbell"></i></div>
-                    <h3>Gimnasios</h3>
-                    <p>Reservas de clases, membresías digitales, apps para miembros, integración con wearables y más.</p>
-                    <div class="arrow">→</div>
-                </a>
-                <a href="restaurantes.html" class="industry-card">
-                    <div class="industry-icon"><i data-lucide="utensils"></i></div>
-                    <h3>Restaurantes</h3>
-                    <p>Menús digitales, pedidos online, QR codes, sistemas de reservas y delivery integrado.</p>
-                    <div class="arrow">→</div>
-                </a>
-                <a href="tiendas.html" class="industry-card">
-                    <div class="industry-icon"><i data-lucide="store"></i></div>
-                    <h3>Tiendas</h3>
-                    <p>E-commerce completo, gestión de inventario, POS digital y analíticas de ventas.</p>
-                    <div class="arrow">→</div>
-                </a>
-                <a href="servicios-medicos.html" class="industry-card">
-                    <div class="industry-icon"><i data-lucide="heart-pulse"></i></div>
-                    <h3>Servicios Médicos</h3>
-                    <p>Agendamiento de citas, historial de pacientes, recordatorios y telemedicina.</p>
-                    <div class="arrow">→</div>
-                </a>
-                <a href="educacion.html" class="industry-card">
-                    <div class="industry-icon"><i data-lucide="graduation-cap"></i></div>
-                    <h3>Educación</h3>
-                    <p>Plataformas de cursos, gestión de estudiantes, pagos online y aulas virtuales.</p>
-                    <div class="arrow">→</div>
-                </a>
-                <a href="profesionales.html" class="industry-card">
-                    <div class="industry-icon"><i data-lucide="briefcase"></i></div>
-                    <h3>Profesionales</h3>
-                    <p>Sitios web portafolio, agendamiento de consultas, gestión de clientes y pagos.</p>
-                    <div class="arrow">→</div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="about" id="nosotros">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Sobre Development Tech Lion</h2>
-                    <p>Somos un equipo apasionado por la tecnología y el crecimiento empresarial. Nuestra misión es democratizar el acceso a soluciones tecnológicas de calidad para pequeños y medianos negocios.</p>
-                    <p>Entendemos los desafíos que enfrentan las PYMES en el mundo digital y estamos comprometidos a brindar soluciones personalizadas que generen resultados tangibles.</p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label">Proyectos Completados</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">30+</div>
-                            <div class="stat-label">Clientes Satisfechos</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">5+</div>
-                            <div class="stat-label">Años de Experiencia</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">24/7</div>
-                            <div class="stat-label">Soporte Técnico</div>
-                        </div>
+            <div class="gym-benefits-section">
+                <div class="section-title">
+                    <h2>Beneficios para tu Negocio</h2>
+                </div>
+                <div class="gym-benefits-grid">
+                    <div class="gym-benefit-card">
+                        <div class="number">40%</div>
+                        <h4>Más Retención</h4>
+                        <p>Probabilidad de renovación de membresía</p>
+                    </div>
+                    <div class="gym-benefit-card">
+                        <div class="number">60%</div>
+                        <h4>Menos No-Shows</h4>
+                        <p>Reducción de inasistencias a clases</p>
+                    </div>
+                    <div class="gym-benefit-card">
+                        <div class="number">15+</div>
+                        <h4>Horas Ahorradas</h4>
+                        <p>Automatización administrativa semanal</p>
+                    </div>
+                    <div class="gym-benefit-card">
+                        <div class="number">24/7</div>
+                        <h4>Ventas Activas</h4>
+                        <p>Tienda online siempre disponible</p>
                     </div>
                 </div>
-                <div class="about-image"></div>
             </div>
         </div>
     </section>
@@ -746,8 +593,8 @@
         <div class="container">
             <div class="contact-content">
                 <div class="contact-info">
-                    <h2>¿Listo para transformar tu negocio?</h2>
-                    <p>Contáctanos hoy y descubre cómo podemos ayudarte a alcanzar tus objetivos tecnológicos. Estamos aquí para responder tus preguntas y comenzar a trabajar juntos.</p>
+                    <h2>¿Listo para transformar tu gimnasio?</h2>
+                    <p>Contáctanos hoy y descubre cómo podemos ayudarte a modernizar tu gimnasio con tecnología de vanguardia.</p>
                     <div class="contact-item">
                         <div class="contact-item-icon"><i data-lucide="mail"></i></div>
                         <div>
